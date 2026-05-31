@@ -1,0 +1,16 @@
+---
+id: compact-stocks-yahoo
+name: Compact Stocks (Yahoo)
+summary: Stock ticker using Yahoo Finance
+desc: Shows current prices & daily changes for 5 stocks of your choice. No API key required.
+author: sbekti
+fileName: compactstocks.star
+packageName: compactstocks
+recommendedInterval: 5
+category: finance
+tags:
+  - finance
+  - stocks
+  - yahoo-finance
+published: '2026-05-31T00:00:00Z'
+updated: '2026-05-31T00:00:00Z'

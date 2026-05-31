@@ -6,15 +6,21 @@ Configure this repository in Tronbyt Server under Settings -> Content -> Custom 
 
 ## Apps
 
-- `lgaflights`: closest aircraft near LaGuardia Airport using adsb.lol.
+- `nearby-flights-adsb`: closest aircraft near a configurable center point using adsb.lol.
+- `compactstocks`: stock ticker showing prices & daily changes for 5 symbols using Yahoo Finance (no API key needed).
 
 ## Local Development
 
 ```sh
 brew install pixlet
-pixlet check apps/lgaflights/lga_flights.star
-pixlet render apps/lgaflights/lga_flights.star center_lat=40.776927 center_lng=-73.873966 radius_nm=10
-pixlet serve apps/lgaflights/lga_flights.star center_lat=40.776927 center_lng=-73.873966 radius_nm=10
+pixlet check apps/nearby-flights-adsb/nearby_flights_adsb.star
+pixlet render apps/nearby-flights-adsb/nearby_flights_adsb.star center_lat=40.776927 center_lng=-73.873966 radius_nm=10
+pixlet serve apps/nearby-flights-adsb/nearby_flights_adsb.star center_lat=40.776927 center_lng=-73.873966 radius_nm=10
+
+# Compact Stocks
+pixlet check apps/compactstocks/compactstocks.star
+pixlet render apps/compactstocks/compactstocks.star symbol1=META symbol2=AAPL
+pixlet serve apps/compactstocks/compactstocks.star symbol1=META symbol2=AAPL
 ```
 
 ## Testing Against Local Tronbyt
@@ -68,6 +74,58 @@ pixlet push \
 Before committing app changes, run:
 
 ```sh
-pixlet lint apps/lgaflights/lga_flights.star
-pixlet check apps/lgaflights/lga_flights.star
+# Nearby Flights
+pixlet render apps/nearby-flights-adsb/nearby_flights_adsb.star \
+  center_lat=40.776927 \
+  center_lng=-73.873966 \
+  radius_nm=10
+
+# Compact Stocks
+pixlet render apps/compactstocks/compactstocks.star \
+  symbol1=META symbol2=AAPL symbol3=GOOGL symbol4=MSFT symbol5=AMZN
+```
+
+Push the rendered WebP as a foreground one-off test. Replace the device ID if `pixlet devices` reports a different one.
+
+```sh
+# Nearby Flights
+pixlet push \
+  -u http://127.0.0.1:18080 \
+  -t "$TRONBYT_API_TOKEN" \
+  43e3610c \
+  apps/nearby-flights-adsb/nearby_flights_adsb.webp
+
+# Compact Stocks
+pixlet push \
+  -u http://127.0.0.1:18080 \
+  -t "$TRONBYT_API_TOKEN" \
+  43e3610c \
+  apps/compactstocks/compactstocks.webp
+```
+
+To keep a pushed image in rotation while testing, add an installation ID.
+
+```sh
+pixlet push \
+  -u http://127.0.0.1:18080 \
+  -t "$TRONBYT_API_TOKEN" \
+  -i nearby-flights-test \
+  43e3610c \
+  apps/nearby-flights-adsb/nearby_flights_adsb.webp
+
+pixlet push \
+  -u http://127.0.0.1:18080 \
+  -t "$TRONBYT_API_TOKEN" \
+  -i compact-stocks-test \
+  43e3610c \
+  apps/compactstocks/compactstocks.webp
+```
+
+Before committing app changes, run:
+
+```sh
+pixlet lint apps/nearby-flights-adsb/nearby_flights_adsb.star
+pixlet check apps/nearby-flights-adsb/nearby_flights_adsb.star
+pixlet lint apps/compactstocks/compactstocks.star
+pixlet check apps/compactstocks/compactstocks.star
 ```
