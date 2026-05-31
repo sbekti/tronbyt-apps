@@ -8,22 +8,55 @@ Author: sbekti
 load("http.star", "http")
 load("humanize.star", "humanize")
 load("images/tail_aa.png", TAIL_AA_ASSET = "file")
+load("images/tail_ac.png", TAIL_AC_ASSET = "file")
+load("images/tail_af.png", TAIL_AF_ASSET = "file")
+load("images/tail_ai.png", TAIL_AI_ASSET = "file")
+load("images/tail_am.png", TAIL_AM_ASSET = "file")
+load("images/tail_as.png", TAIL_AS_ASSET = "file")
+load("images/tail_at.png", TAIL_AT_ASSET = "file")
+load("images/tail_av.png", TAIL_AV_ASSET = "file")
 load("images/tail_ay.png", TAIL_AY_ASSET = "file")
+load("images/tail_az.png", TAIL_AZ_ASSET = "file")
 load("images/tail_b6.png", TAIL_B6_ASSET = "file")
 load("images/tail_ba.png", TAIL_BA_ASSET = "file")
+load("images/tail_br.png", TAIL_BR_ASSET = "file")
+load("images/tail_ca.png", TAIL_CA_ASSET = "file")
+load("images/tail_ci.png", TAIL_CI_ASSET = "file")
+load("images/tail_cm.png", TAIL_CM_ASSET = "file")
 load("images/tail_cx.png", TAIL_CX_ASSET = "file")
+load("images/tail_cz.png", TAIL_CZ_ASSET = "file")
 load("images/tail_dl.png", TAIL_DL_ASSET = "file")
+load("images/tail_ei.png", TAIL_EI_ASSET = "file")
 load("images/tail_ek.png", TAIL_EK_ASSET = "file")
+load("images/tail_et.png", TAIL_ET_ASSET = "file")
 load("images/tail_ey.png", TAIL_EY_ASSET = "file")
+load("images/tail_f9.png", TAIL_F9_ASSET = "file")
+load("images/tail_fi.png", TAIL_FI_ASSET = "file")
 load("images/tail_fz.png", TAIL_FZ_ASSET = "file")
+load("images/tail_ha.png", TAIL_HA_ASSET = "file")
+load("images/tail_hy.png", TAIL_HY_ASSET = "file")
 load("images/tail_ib.png", TAIL_IB_ASSET = "file")
 load("images/tail_ix.png", TAIL_IX_ASSET = "file")
 load("images/tail_jl.png", TAIL_JL_ASSET = "file")
+load("images/tail_ke.png", TAIL_KE_ASSET = "file")
+load("images/tail_kl.png", TAIL_KL_ASSET = "file")
 load("images/tail_km.png", TAIL_KM_ASSET = "file")
+load("images/tail_kq.png", TAIL_KQ_ASSET = "file")
+load("images/tail_ku.png", TAIL_KU_ASSET = "file")
 load("images/tail_la.png", TAIL_LA_ASSET = "file")
+load("images/tail_lh.png", TAIL_LH_ASSET = "file")
+load("images/tail_lo.png", TAIL_LO_ASSET = "file")
+load("images/tail_lx.png", TAIL_LX_ASSET = "file")
+load("images/tail_ly.png", TAIL_LY_ASSET = "file")
+load("images/tail_me.png", TAIL_ME_ASSET = "file")
 load("images/tail_mh.png", TAIL_MH_ASSET = "file")
 load("images/tail_ms.png", TAIL_MS_ASSET = "file")
+load("images/tail_mu.png", TAIL_MU_ASSET = "file")
+load("images/tail_n0.png", TAIL_N0_ASSET = "file")
+load("images/tail_nh.png", TAIL_NH_ASSET = "file")
+load("images/tail_nk.png", TAIL_NK_ASSET = "file")
 load("images/tail_oz.png", TAIL_OZ_ASSET = "file")
+load("images/tail_pd.png", TAIL_PD_ASSET = "file")
 load("images/tail_pr.png", TAIL_PR_ASSET = "file")
 load("images/tail_q4.png", TAIL_Q4_ASSET = "file")
 load("images/tail_qf.png", TAIL_QF_ASSET = "file")
@@ -31,11 +64,19 @@ load("images/tail_qr.png", TAIL_QR_ASSET = "file")
 load("images/tail_rj.png", TAIL_RJ_ASSET = "file")
 load("images/tail_sk.png", TAIL_SK_ASSET = "file")
 load("images/tail_sq.png", TAIL_SQ_ASSET = "file")
+load("images/tail_sv.png", TAIL_SV_ASSET = "file")
 load("images/tail_tg.png", TAIL_TG_ASSET = "file")
 load("images/tail_tk.png", TAIL_TK_ASSET = "file")
+load("images/tail_tn.png", TAIL_TN_ASSET = "file")
+load("images/tail_tp.png", TAIL_TP_ASSET = "file")
+load("images/tail_ts.png", TAIL_TS_ASSET = "file")
 load("images/tail_u2.png", TAIL_U2_ASSET = "file")
 load("images/tail_ua.png", TAIL_UA_ASSET = "file")
 load("images/tail_ul.png", TAIL_UL_ASSET = "file")
+load("images/tail_ux.png", TAIL_UX_ASSET = "file")
+load("images/tail_vs.png", TAIL_VS_ASSET = "file")
+load("images/tail_wn.png", TAIL_WN_ASSET = "file")
+load("images/tail_ws.png", TAIL_WS_ASSET = "file")
 load("images/tail_wy.png", TAIL_WY_ASSET = "file")
 load("render.star", "render")
 load("schema.star", "schema")
@@ -81,6 +122,47 @@ TAILS = {
     "UA": TAIL_UA_ASSET.readall(),
     "UL": TAIL_UL_ASSET.readall(),
     "WY": TAIL_WY_ASSET.readall(),
+    "AC": TAIL_AC_ASSET.readall(),
+    "AF": TAIL_AF_ASSET.readall(),
+    "AI": TAIL_AI_ASSET.readall(),
+    "AM": TAIL_AM_ASSET.readall(),
+    "AS": TAIL_AS_ASSET.readall(),
+    "AT": TAIL_AT_ASSET.readall(),
+    "AV": TAIL_AV_ASSET.readall(),
+    "AZ": TAIL_AZ_ASSET.readall(),
+    "BR": TAIL_BR_ASSET.readall(),
+    "CA": TAIL_CA_ASSET.readall(),
+    "CI": TAIL_CI_ASSET.readall(),
+    "CM": TAIL_CM_ASSET.readall(),
+    "CZ": TAIL_CZ_ASSET.readall(),
+    "EI": TAIL_EI_ASSET.readall(),
+    "ET": TAIL_ET_ASSET.readall(),
+    "F9": TAIL_F9_ASSET.readall(),
+    "FI": TAIL_FI_ASSET.readall(),
+    "HA": TAIL_HA_ASSET.readall(),
+    "HY": TAIL_HY_ASSET.readall(),
+    "KE": TAIL_KE_ASSET.readall(),
+    "KL": TAIL_KL_ASSET.readall(),
+    "KQ": TAIL_KQ_ASSET.readall(),
+    "KU": TAIL_KU_ASSET.readall(),
+    "LH": TAIL_LH_ASSET.readall(),
+    "LO": TAIL_LO_ASSET.readall(),
+    "LX": TAIL_LX_ASSET.readall(),
+    "LY": TAIL_LY_ASSET.readall(),
+    "ME": TAIL_ME_ASSET.readall(),
+    "MU": TAIL_MU_ASSET.readall(),
+    "N0": TAIL_N0_ASSET.readall(),
+    "NH": TAIL_NH_ASSET.readall(),
+    "NK": TAIL_NK_ASSET.readall(),
+    "PD": TAIL_PD_ASSET.readall(),
+    "SV": TAIL_SV_ASSET.readall(),
+    "TN": TAIL_TN_ASSET.readall(),
+    "TP": TAIL_TP_ASSET.readall(),
+    "TS": TAIL_TS_ASSET.readall(),
+    "UX": TAIL_UX_ASSET.readall(),
+    "VS": TAIL_VS_ASSET.readall(),
+    "WN": TAIL_WN_ASSET.readall(),
+    "WS": TAIL_WS_ASSET.readall(),
 }
 
 ICAO_TO_IATA = {
