@@ -1,0 +1,15 @@
+---
+id: nearby-flights-adsb
+name: Nearby Flights ADSB
+summary: Aircraft near you
+desc: Shows the closest ADS-B aircraft around a configurable center point using adsb.lol.
+author: sbekti
+fileName: nearby_flights_adsb.star
+packageName: nearby_flights_adsb
+recommendedInterval: 1
+category: transit
+tags:
+  - utility
+  - aviation
+published: '2026-05-31T00:00:00Z'
+updated: '2026-05-31T00:00:00Z'

@@ -1,6 +1,6 @@
 """
-Applet: LGA Flights
-Summary: Aircraft near LaGuardia
+Applet: Nearby Flights ADSB
+Summary: Aircraft near you
 Description: Shows the closest ADS-B aircraft around a configurable center point.
 Author: sbekti
 """
@@ -84,42 +84,83 @@ TAILS = {
 }
 
 ICAO_TO_IATA = {
-    "AAL": "AA",
-    "ACA": "AC",
-    "ASH": "UA",
-    "BAW": "BA",
-    "BTA": "B6",
-    "CPA": "CX",
-    "DAL": "DL",
-    "EDV": "DL",
-    "ELY": "LY",
-    "ENY": "AA",
-    "ETD": "EY",
-    "EZY": "U2",
-    "FFT": "F9",
-    "FIN": "AY",
-    "IBE": "IB",
-    "JAL": "JL",
-    "JBU": "B6",
-    "JIA": "AA",
-    "LAN": "LA",
-    "MAS": "MH",
-    "MSR": "MS",
-    "NKS": "NK",
-    "PAL": "PR",
-    "PDT": "AA",
-    "QFA": "QF",
-    "QTR": "QR",
-    "RPA": "AA",
-    "RJA": "RJ",
-    "SAS": "SK",
-    "SIA": "SQ",
-    "SKW": "UA",
-    "SWA": "WN",
-    "THA": "TG",
-    "THY": "TK",
-    "UAE": "EK",
-    "UAL": "UA",
+    "AAL": "AA",  # American Airlines
+    "ACA": "AC",  # Air Canada
+    "AEA": "UX",  # Air Europa
+    "AFR": "AF",  # Air France
+    "AIC": "AI",  # Air India
+    "AMX": "AM",  # Aeromexico
+    "ANA": "NH",  # All Nippon Airways
+    "ASA": "AS",  # Alaska Airlines
+    "ASH": "UA",  # Mesa Airlines (United Express)
+    "AVA": "AV",  # Avianca
+    "AWI": "AA",  # Air Wisconsin (American Eagle)
+    "BAW": "BA",  # British Airways
+    "BTA": "B6",  # JetBlue (callsign prefix)
+    "CAL": "CI",  # China Airlines
+    "CCA": "CA",  # Air China
+    "CES": "MU",  # China Eastern
+    "CMP": "CM",  # Copa Airlines
+    "CPA": "CX",  # Cathay Pacific
+    "CSN": "CZ",  # China Southern
+    "DAL": "DL",  # Delta Air Lines
+    "DLH": "LH",  # Lufthansa
+    "EDV": "DL",  # Endeavor Air (Delta Connection)
+    "EIN": "EI",  # Aer Lingus
+    "ELY": "LY",  # El Al
+    "ENY": "AA",  # Envoy Air (American Eagle)
+    "ETD": "EY",  # Etihad
+    "ETH": "ET",  # Ethiopian Airlines
+    "EVA": "BR",  # EVA Air
+    "EZY": "U2",  # easyJet
+    "FFT": "F9",  # Frontier
+    "FIN": "AY",  # Finnair
+    "GJS": "UA",  # GoJet (United Express)
+    "HAL": "HA",  # Hawaiian Airlines
+    "IBE": "IB",  # Iberia
+    "ICE": "FI",  # Icelandair
+    "ITY": "AZ",  # ITA Airways
+    "JAL": "JL",  # Japan Airlines
+    "JBU": "B6",  # JetBlue
+    "JIA": "AA",  # PSA Airlines (American Eagle)
+    "JZA": "AC",  # Jazz (Air Canada Express)
+    "KAC": "KU",  # Kuwait Airways
+    "KAL": "KE",  # Korean Air
+    "KLM": "KL",  # KLM
+    "KQA": "KQ",  # Kenya Airways
+    "LAN": "LA",  # LATAM
+    "LOT": "LO",  # LOT Polish Airlines
+    "MAS": "MH",  # Malaysia Airlines
+    "MEA": "ME",  # Middle East Airlines
+    "MSR": "MS",  # EgyptAir
+    "NBT": "N0",  # Norse Atlantic
+    "NKS": "NK",  # Spirit
+    "PAL": "PR",  # Philippine Airlines
+    "PDT": "AA",  # Piedmont (American Eagle)
+    "POE": "PD",  # Porter Airlines
+    "QFA": "QF",  # Qantas
+    "QTR": "QR",  # Qatar Airways
+    "RAM": "AT",  # Royal Air Maroc
+    "RJA": "RJ",  # Royal Jordanian
+    "ROU": "AC",  # Air Canada Rouge
+    "RPA": "AA",  # Republic Airways (American Eagle)
+    "SAS": "SK",  # SAS
+    "SIA": "SQ",  # Singapore Airlines
+    "SKW": "UA",  # SkyWest (United Express)
+    "SVA": "SV",  # Saudia
+    "SWA": "WN",  # Southwest
+    "SWR": "LX",  # Swiss
+    "TAP": "TP",  # TAP Air Portugal
+    "THA": "TG",  # Thai Airways
+    "THT": "TN",  # Air Tahiti Nui
+    "THY": "TK",  # Turkish Airlines
+    "TSC": "TS",  # Air Transat
+    "UAE": "EK",  # Emirates
+    "UAL": "UA",  # United Airlines
+    "UCA": "UA",  # CommuteAir (United Express)
+    "UZB": "HY",  # Uzbekistan Airways
+    "VIR": "VS",  # Virgin Atlantic
+    "WJA": "WS",  # WestJet
 }
 
 def clamp(value, minimum, maximum):
@@ -440,8 +481,13 @@ def app_display(tail, text):
     return render.Row(
         children = [
             render.Box(
-                width = 32,
-                child = render.Image(tail),
+                width = 31,
+                child = render.Column(
+                    children = [
+                        render.Box(height = 1),
+                        render.Image(tail),
+                    ],
+                ),
             ),
             render.Box(
                 child = render.Column(
@@ -451,14 +497,17 @@ def app_display(tail, text):
         ],
     )
 
+def info_text(content):
+    return render.Text(content)
+
 def empty_display(message):
     return render.Root(
         child = app_display(
             TAILS["Q4"],
             [
-                render.Text(message[0]),
-                render.Text(message[1]),
-                render.Text(message[2]),
+                info_text(message[0]),
+                info_text(message[1]),
+                info_text(message[2]),
             ],
         ),
     )
@@ -486,7 +535,7 @@ def main(config):
     if selection == None:
         if hide_if_empty:
             return []
-        return empty_display(["NO", "ROUTE", "LGA"])
+        return empty_display(["NO", "NEARBY", "FLIGHTS"])
 
     plane = selection["plane"]
     route = selection["route"]
@@ -501,12 +550,12 @@ def main(config):
     )
 
     text = [
-        render.Text(display_flight_number(route, callsign)),
-        render.Text(route_string(route)),
-        render.Text(aircraft_type(plane)),
+        info_text(display_flight_number(route, callsign)),
+        info_text(route_string(route)),
+        info_text(aircraft_type(plane)),
         render.Marquee(
             width = 32,
-            child = render.Text(details),
+            child = info_text(details),
         ),
     ]
 
@@ -522,14 +571,14 @@ def get_schema():
             schema.Text(
                 id = "center_lat",
                 name = "Center latitude",
-                desc = "Latitude for the search center. Defaults to LGA.",
+                desc = "Latitude for the search center.",
                 icon = "locationDot",
                 default = DEFAULT_CENTER_LAT,
             ),
             schema.Text(
                 id = "center_lng",
                 name = "Center longitude",
-                desc = "Longitude for the search center. Defaults to LGA.",
+                desc = "Longitude for the search center.",
                 icon = "locationDot",
                 default = DEFAULT_CENTER_LNG,
             ),
