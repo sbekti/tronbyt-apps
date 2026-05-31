@@ -45,7 +45,10 @@ DEFAULT_CENTER_LNG = "-73.873966"
 DEFAULT_RADIUS_NM = "10"
 MAX_RADIUS_NM = 250
 DEFAULT_CACHE_SECONDS = 20
-ADSB_POINT_URL = "https://api.adsb.lol/v2/point/{lat}/{lon}/{radius}"
+ROUTE_CACHE_SECONDS = 21600
+MAX_ROUTE_CANDIDATES = 25
+ADSB_POINT_URL = "https://api.adsb.lol/v2/lat/{lat}/lon/{lon}/dist/{radius}"
+ROUTE_URL = "https://adsb.im/api/0/routeset"
 
 TAILS = {
     "AA": TAIL_AA_ASSET.readall(),
@@ -82,25 +85,37 @@ TAILS = {
 
 ICAO_TO_IATA = {
     "AAL": "AA",
+    "ACA": "AC",
+    "ASH": "UA",
     "BAW": "BA",
+    "BTA": "B6",
     "CPA": "CX",
     "DAL": "DL",
+    "EDV": "DL",
     "ELY": "LY",
+    "ENY": "AA",
     "ETD": "EY",
     "EZY": "U2",
+    "FFT": "F9",
     "FIN": "AY",
     "IBE": "IB",
     "JAL": "JL",
     "JBU": "B6",
+    "JIA": "AA",
     "LAN": "LA",
     "MAS": "MH",
     "MSR": "MS",
+    "NKS": "NK",
     "PAL": "PR",
+    "PDT": "AA",
     "QFA": "QF",
     "QTR": "QR",
+    "RPA": "AA",
     "RJA": "RJ",
     "SAS": "SK",
     "SIA": "SQ",
+    "SKW": "UA",
+    "SWA": "WN",
     "THA": "TG",
     "THY": "TK",
     "UAE": "EK",
@@ -178,10 +193,43 @@ def pad3(value):
         return "0" + text
     return text
 
+def split_callsign(callsign):
+    alpha = ""
+    number = ""
+    suffix = ""
+    in_number = False
+
+    for i in range(len(callsign)):
+        ch = callsign[i]
+        if ch >= "0" and ch <= "9":
+            number += ch
+            in_number = True
+        elif not in_number:
+            alpha += ch
+        else:
+            suffix += ch
+
+    stripped_number = ""
+    found_nonzero = False
+    for i in range(len(number)):
+        ch = number[i]
+        if ch != "0" or found_nonzero or i == len(number) - 1:
+            stripped_number += ch
+            found_nonzero = True
+    number = stripped_number
+
+    return [alpha, number, suffix]
+
+def normalized_callsign(callsign):
+    parts = split_callsign(callsign.strip().upper())
+    if len(parts[0]) == 0 or len(parts[1]) == 0:
+        return callsign.strip().upper()
+    return parts[0] + parts[1] + parts[2]
+
 def compact_callsign(plane):
     flight = plane.get("flight")
     if type(flight) == "string" and len(flight.strip()) > 0:
-        return flight.strip().upper()
+        return normalized_callsign(flight)
 
     registration = plane.get("r")
     if type(registration) == "string" and len(registration.strip()) > 0:
@@ -204,6 +252,30 @@ def tail_for_callsign(callsign):
 
     return TAILS["Q4"]
 
+def tail_for_iata(iata):
+    if iata in TAILS:
+        return TAILS[iata]
+    return TAILS["Q4"]
+
+def iata_for_icao(icao):
+    if type(icao) != "string":
+        return None
+    return ICAO_TO_IATA.get(icao.strip().upper())
+
+def display_flight_number(route, callsign):
+    airline_code = route.get("airline_code")
+    number = route.get("number")
+    iata = iata_for_icao(airline_code)
+    if iata != None and number != None and str(number) != "":
+        return iata + str(number)
+
+    parts = split_callsign(callsign)
+    iata = iata_for_icao(parts[0])
+    if iata != None and len(parts[1]) > 0:
+        return iata + parts[1] + parts[2]
+
+    return callsign
+
 def is_airborne(plane):
     alt = plane.get("alt_baro")
     if alt == "ground":
@@ -215,28 +287,103 @@ def is_airborne(plane):
 
     return True
 
-def select_aircraft(aircraft):
-    closest = None
-    closest_dst = None
-    closest_airborne = None
-    closest_airborne_dst = None
+def is_rotorcraft(plane):
+    if plane.get("category") == "A7":
+        return True
+
+    kind = aircraft_type(plane)
+    return kind in ["B06", "B407", "B429", "H60", "R44", "R66", "S76"]
+
+def route_string(route):
+    direct = route.get("_airport_codes_iata")
+    if type(direct) == "string" and len(direct) > 0:
+        parts = direct.split("-")
+        if len(parts) <= 2:
+            return direct
+        return parts[0] + "-" + parts[1] + "+"
+
+    airports = route.get("_airports", [])
+    if len(airports) < 2:
+        return ""
+
+    origin = airports[0].get("iata")
+    dest = airports[1].get("iata")
+    if type(origin) != "string" or type(dest) != "string":
+        return ""
+
+    if len(airports) > 2:
+        return origin + "-" + dest + "+"
+    return origin + "-" + dest
+
+def route_for_callsign(routes, callsign):
+    for route in routes:
+        if route == None:
+            continue
+        if iata_for_icao(route.get("airline_code")) == None:
+            continue
+        route_callsign = route.get("callsign")
+        if type(route_callsign) == "string" and normalized_callsign(route_callsign) == callsign:
+            if route_string(route) != "":
+                return route
+    return None
+
+def route_payload(candidates):
+    planes = []
+    for candidate in candidates[:MAX_ROUTE_CANDIDATES]:
+        plane = candidate["plane"]
+        planes.append({
+            "callsign": candidate["callsign"],
+            "lat": plane.get("lat"),
+            "lng": plane.get("lon"),
+        })
+
+    return {"planes": planes}
+
+def select_route_confirmed_aircraft(aircraft):
+    candidates = []
 
     for plane in aircraft:
         dst = number_or_none(plane.get("dst"))
         if dst == None:
             continue
+        if not is_airborne(plane):
+            continue
+        if is_rotorcraft(plane):
+            continue
 
-        if closest == None or dst < closest_dst:
-            closest = plane
-            closest_dst = dst
+        callsign = compact_callsign(plane)
+        if callsign == "UNKNOWN":
+            continue
 
-        if is_airborne(plane) and (closest_airborne == None or dst < closest_airborne_dst):
-            closest_airborne = plane
-            closest_airborne_dst = dst
+        candidates.append({
+            "dst": dst,
+            "callsign": callsign,
+            "plane": plane,
+        })
 
-    if closest_airborne != None:
-        return closest_airborne
-    return closest
+    candidates = sorted(candidates, key = lambda candidate: candidate["dst"])
+    if len(candidates) == 0:
+        return None
+
+    response = http.post(
+        url = ROUTE_URL,
+        json_body = route_payload(candidates),
+        ttl_seconds = ROUTE_CACHE_SECONDS,
+    )
+    if response.status_code != 200:
+        return None
+
+    routes = response.json()
+    for candidate in candidates:
+        route = route_for_callsign(routes, candidate["callsign"])
+        if route != None:
+            return {
+                "plane": candidate["plane"],
+                "callsign": candidate["callsign"],
+                "route": route,
+            }
+
+    return None
 
 def aircraft_type(plane):
     kind = plane.get("t")
@@ -334,26 +481,29 @@ def main(config):
 
     data = response.json()
     aircraft = data.get("ac", [])
-    plane = select_aircraft(aircraft)
+    selection = select_route_confirmed_aircraft(aircraft)
 
-    if plane == None:
+    if selection == None:
         if hide_if_empty:
             return []
-        return empty_display(["NO", "AIR", "LGA"])
+        return empty_display(["NO", "ROUTE", "LGA"])
 
+    plane = selection["plane"]
+    route = selection["route"]
     callsign = compact_callsign(plane)
-    tail = tail_for_callsign(callsign)
-    details = "%s %s %s FROM %s" % (
+    iata = iata_for_icao(route.get("airline_code"))
+    tail = tail_for_iata(iata) if iata != None else tail_for_callsign(callsign)
+    details = "%s %s %s %s" % (
         distance_label(plane),
+        altitude_label(plane),
         speed_label(plane),
         heading_label(plane),
-        direction_label(plane),
     )
 
     text = [
-        render.Text(callsign),
+        render.Text(display_flight_number(route, callsign)),
+        render.Text(route_string(route)),
         render.Text(aircraft_type(plane)),
-        render.Text(altitude_label(plane)),
         render.Marquee(
             width = 32,
             child = render.Text(details),
