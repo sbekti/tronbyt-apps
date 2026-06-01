@@ -246,245 +246,245 @@ ICAO_TO_IATA = {
 }
 
 ICAO_AIRCRAFT_TYPES = {
-    "A124": "An-124",
-    "A140": "An-140",
-    "A148": "An-148",
-    "A158": "An-158",
-    "A19N": "A319neo",
-    "A20N": "A320neo",
-    "A21N": "A321neo",
-    "A225": "An-225",
-    "A306": "A300-600",
-    "A30B": "A300B2",
-    "A310": "A310-200",
-    "A318": "A318",
-    "A319": "A319",
-    "A320": "A320",
-    "A321": "A321",
-    "A332": "A330-200",
-    "A333": "A330-300",
-    "A337": "A330-700",
-    "A338": "A330-800",
-    "A339": "A330-900",
-    "A342": "A340-200",
-    "A343": "A340-300",
-    "A345": "A340-500",
-    "A346": "A340-600",
-    "A359": "A350-900",
-    "A35K": "A350-10",
-    "A388": "A380-800",
-    "A3ST": "Beluga",
-    "A400": "A400M",
-    "A748": "HS 748",
-    "AC90": "Commndr",
-    "AJ27": "ARJ21",
-    "AN12": "An-12",
-    "AN24": "An-24",
-    "AN26": "An-26",
-    "AN28": "An-28",
-    "AN30": "An-30",
-    "AN32": "An-32",
-    "AN72": "An-72",
-    "AT43": "ATR42",
-    "AT45": "ATR42-5",
-    "AT46": "ATR42-6",
-    "AT72": "ATR72",
-    "AT73": "ATR72-5",
-    "AT75": "ATR72-5",
-    "AT76": "ATR72-6",
-    "ATP": "ATP",
-    "B190": "1900",
-    "B37M": "737MAX7",
-    "B38M": "737MAX8",
-    "B39M": "737MAX9",
-    "B3XM": "737M10",
-    "B461": "146-100",
-    "B462": "146-200",
-    "B463": "146-300",
-    "B52": "B-52",
-    "B703": "707",
-    "B712": "717",
-    "B720": "720B",
-    "B721": "727-100",
-    "B722": "727-200",
-    "B732": "737-200",
-    "B733": "737-300",
-    "B734": "737-400",
-    "B735": "737-500",
-    "B736": "737-600",
-    "B737": "737-700",
-    "B738": "737-800",
-    "B739": "737-900",
-    "B741": "747-100",
-    "B742": "747-200",
-    "B743": "747-300",
-    "B744": "747-400",
-    "B748": "747-8I",
-    "B74R": "747SR",
-    "B74S": "747SP",
-    "B752": "757-200",
-    "B753": "757-300",
-    "B762": "767-200",
-    "B763": "767-300",
-    "B764": "767-400",
-    "B772": "777-200",
-    "B773": "777-300",
-    "B778": "777-8",
-    "B779": "777-9",
-    "B77L": "777-200",
-    "B77W": "777-300",
-    "B788": "787-8",
-    "B789": "787-9",
-    "B78X": "787-10",
-    "BA11": "BAC111",
-    "BCS1": "A220-100",
-    "BCS3": "A220-300",
-    "BE20": "KA200",
-    "BE40": "400",
-    "BE99": "99",
-    "BELF": "SC-5",
-    "BER2": "Beriev",
-    "BLCF": "Dreamlftr",
-    "C130": "Hercules",
-    "C208": "208",
-    "C212": "C212",
-    "C25A": "CJ2",
-    "C25B": "CJ3",
-    "C25C": "CJ4",
-    "C30J": "C-130J",
-    "C408": "408",
-    "C500": "C500",
-    "C510": "Mustang",
-    "C525": "CJet",
-    "C550": "C550",
-    "C560": "C560",
-    "C56X": "Excel",
-    "C5M": "C-5M",
-    "C650": "C650",
-    "C680": "C680",
-    "C68A": "Latitude",
-    "C700": "Longitude",
-    "C750": "X",
-    "C919": "C919",
-    "CL2T": "415",
-    "CL30": "CL300",
-    "CL35": "CL350",
-    "CL60": "CL600",
-    "CN35": "CN-235",
-    "CRJ1": "CRJ-200",
-    "CRJ2": "CRJ-200",
-    "CRJ7": "CRJ-700",
-    "CRJ9": "CRJ-900",
-    "CRJX": "CRJ-1K",
-    "CVLT": "Convair",
-    "D228": "Do228",
-    "D328": "Do.328",
-    "DC10": "DC-10",
-    "DC85": "DC-8-50",
-    "DC86": "DC-8-62",
-    "DC87": "DC-8-72",
-    "DC91": "DC-9-10",
-    "DC92": "DC-9-20",
-    "DC93": "DC-9-30",
-    "DC94": "DC-9-40",
-    "DC95": "DC-9-50",
-    "DH8A": "DHC8-1",
-    "DH8B": "DHC8-2",
-    "DH8C": "DHC8-3",
-    "DH8D": "DHC8-4",
-    "DHC5": "DHC-5",
-    "DHC6": "DHC-6",
-    "DHC7": "DHC-7",
-    "E110": "EMB110",
-    "E120": "EMB120",
-    "E135": "RJ135",
-    "E145": "RJ145",
-    "E170": "E170",
-    "E190": "E190",
-    "E195": "E195",
-    "E290": "E190-E2",
-    "E295": "E195-E2",
-    "E35L": "Legacy6",
-    "E50P": "Phenom1",
-    "E545": "Praetor5",
-    "E550": "Praetor6",
-    "E55P": "Phenom3",
-    "E75L": "E175",
-    "E75S": "E175",
-    "EA50": "500",
-    "F100": "100",
-    "F27": "F27",
-    "F28": "F28",
-    "F2TH": "Falcon2K",
-    "F406": "F406",
-    "F50": "50",
-    "F70": "70",
-    "F900": "Falcon9",
-    "FA50": "Falcon50",
-    "FA6X": "Falcon6X",
-    "FA7X": "Falcon7X",
-    "G159": "G-159",
-    "G280": "G280",
-    "G73T": "Grumman",
-    "GA7C": "G700",
-    "GL5T": "Global5",
-    "GLEX": "GlobalEx",
-    "GLF4": "G-IV",
-    "GLF5": "G-V",
-    "GLF6": "G650",
-    "H25B": "HS125",
-    "H25C": "HS125-1",
-    "HDJT": "HA-420",
-    "I114": "Il-114",
-    "IL18": "Il-18",
-    "IL62": "Il-62",
-    "IL76": "Il-76",
-    "IL86": "Il-86",
-    "IL96": "Il-96",
-    "J328": "328JET",
-    "JS31": "31",
-    "JS32": "32",
-    "JS41": "41",
-    "K35R": "KC-135",
-    "L101": "Tristar",
-    "L188": "L-188",
-    "L410": "410",
-    "LJ35": "35",
-    "LJ60": "60",
-    "MD11": "MD-11",
-    "MD81": "MD-81",
-    "MD82": "MD-82",
-    "MD83": "MD-83",
-    "MD87": "MD-87",
-    "MD88": "MD-88",
-    "MD90": "MD-90",
-    "MU2": "Mu-2",
-    "N262": "262",
-    "NOMA": "N22B",
-    "P180": "P.180",
-    "P8": "P-8",
-    "PAY2": "PAY2",
-    "PC12": "PC-12",
-    "PC24": "PC-24",
-    "RJ1H": "RJ100",
-    "RJ70": "RJ70",
-    "RJ85": "RJ85",
-    "S601": "SN.601",
-    "SB20": "2000",
-    "SC7": "SC-7",
-    "SF34": "SF340A",
-    "SH33": "SD.330",
-    "SH36": "SD.360",
-    "SU95": "SSJ100",
-    "SW4": "Metro",
-    "T134": "Tu-134",
-    "T154": "Tu-154",
-    "T204": "Tu-204",
-    "WW24": "Westwind",
-    "Y12": "Y-12",
-    "YK40": "Yak-40",
-    "YK42": "Yak-42",
-    "YS11": "YS-11",
+    "A124": "An-124",  # Antonov An-124 Ruslan
+    "A140": "An-140",  # Antonov An-140
+    "A148": "An-148",  # Antonov An-148
+    "A158": "An-158",  # Antonov An-158
+    "A19N": "A319neo",  # Airbus A319neo
+    "A20N": "A320neo",  # Airbus A320neo
+    "A21N": "A321neo",  # Airbus A321neo/LR/XLR
+    "A225": "An-225",  # Antonov An-225 Mriya
+    "A306": "A300-600",  # Airbus A300-600
+    "A30B": "A300B2",  # Airbus A300B2, A300B4 and A300C4
+    "A310": "A310-200",  # Airbus A310-200
+    "A318": "A318",  # Airbus A318
+    "A319": "A319",  # Airbus A319
+    "A320": "A320",  # Airbus A320
+    "A321": "A321",  # Airbus A321
+    "A332": "A330-200",  # Airbus A330-200
+    "A333": "A330-300",  # Airbus A330-300
+    "A337": "A330-700",  # Airbus A330-700 "BelugaXL"
+    "A338": "A330-800",  # Airbus A330-800
+    "A339": "A330-900",  # Airbus A330-900
+    "A342": "A340-200",  # Airbus A340-200
+    "A343": "A340-300",  # Airbus A340-300
+    "A345": "A340-500",  # Airbus A340-500
+    "A346": "A340-600",  # Airbus A340-600
+    "A359": "A350-900",  # Airbus A350-900
+    "A35K": "A350-10",  # Airbus A350-1000
+    "A388": "A380-800",  # Airbus A380-800
+    "A3ST": "Beluga",  # Airbus A300-600ST Super Transporter / Beluga
+    "A400": "A400M",  # Airbus A400M Atlas
+    "A748": "HS 748",  # Hawker Siddeley HS 748
+    "AC90": "Commndr",  # Gulfstream/Rockwell (Aero) Turbo Commander 690
+    "AJ27": "ARJ21",  # Comac ARJ21-700 / C909
+    "AN12": "An-12",  # Antonov An-12
+    "AN24": "An-24",  # Antonov An-24
+    "AN26": "An-26",  # Antonov An-26
+    "AN28": "An-28",  # Antonov An-28
+    "AN30": "An-30",  # Antonov An-30
+    "AN32": "An-32",  # Antonov An-32
+    "AN72": "An-72",  # Antonov An-72 / An-74
+    "AT43": "ATR42",  # Aerospatiale/Alenia ATR 42-300 / 320
+    "AT45": "ATR42-5",  # Aerospatiale/Alenia ATR 42-500
+    "AT46": "ATR42-6",  # Aerospatiale/Alenia ATR 42-600
+    "AT72": "ATR72",  # Aerospatiale/Alenia ATR 72-201/-202
+    "AT73": "ATR72-5",  # Aerospatiale/Alenia ATR 72-211/-212
+    "AT75": "ATR72-5",  # Aerospatiale/Alenia ATR 72-212A (500)
+    "AT76": "ATR72-6",  # Aerospatiale/Alenia ATR 72-212A (600)
+    "ATP": "ATP",  # British Aerospace ATP
+    "B190": "1900",  # Beechcraft 1900
+    "B37M": "737MAX7",  # Boeing 737 MAX 7
+    "B38M": "737MAX8",  # Boeing 737 MAX 8
+    "B39M": "737MAX9",  # Boeing 737 MAX 9
+    "B3XM": "737M10",  # Boeing 737 MAX 10
+    "B461": "146-100",  # BAe 146-100
+    "B462": "146-200",  # BAe 146-200
+    "B463": "146-300",  # BAe 146-300
+    "B52": "B-52",  # Boeing B-52 Stratofortress
+    "B703": "707",  # Boeing 707
+    "B712": "717",  # Boeing 717
+    "B720": "720B",  # Boeing 720B
+    "B721": "727-100",  # Boeing 727-100
+    "B722": "727-200",  # Boeing 727-200
+    "B732": "737-200",  # Boeing 737-200
+    "B733": "737-300",  # Boeing 737-300
+    "B734": "737-400",  # Boeing 737-400
+    "B735": "737-500",  # Boeing 737-500
+    "B736": "737-600",  # Boeing 737-600
+    "B737": "737-700",  # Boeing 737-700 / Boeing 737-700ER
+    "B738": "737-800",  # Boeing 737-800
+    "B739": "737-900",  # Boeing 737-900 / Boeing 737-900ER
+    "B741": "747-100",  # Boeing 747-100
+    "B742": "747-200",  # Boeing 747-200
+    "B743": "747-300",  # Boeing 747-300
+    "B744": "747-400",  # Boeing 747-400 / Boeing 747-400ER
+    "B748": "747-8I",  # Boeing 747-8I
+    "B74R": "747SR",  # Boeing 747SR
+    "B74S": "747SP",  # Boeing 747SP
+    "B752": "757-200",  # Boeing 757-200
+    "B753": "757-300",  # Boeing 757-300
+    "B762": "767-200",  # Boeing 767-200 / Boeing 767-200ER
+    "B763": "767-300",  # Boeing 767-300 / Boeing 767-300ER
+    "B764": "767-400",  # Boeing 767-400ER
+    "B772": "777-200",  # Boeing 777-200 / Boeing 777-200ER
+    "B773": "777-300",  # Boeing 777-300
+    "B778": "777-8",  # Boeing 777-8
+    "B779": "777-9",  # Boeing 777-9
+    "B77L": "777-200",  # Boeing 777-200 Freighter / 777-200LR
+    "B77W": "777-300",  # Boeing 777-300ER
+    "B788": "787-8",  # Boeing 787-8
+    "B789": "787-9",  # Boeing 787-9
+    "B78X": "787-10",  # Boeing 787-10
+    "BA11": "BAC111",  # British Aerospace (BAC) One Eleven
+    "BCS1": "A220-100",  # Bombardier CSeries CS100 / Airbus A220-100
+    "BCS3": "A220-300",  # Bombardier CSeries CS300 / Airbus A220-300
+    "BE20": "KA200",  # Beechcraft (Super) King Air 200
+    "BE40": "400",  # Hawker 400
+    "BE99": "99",  # Beechcraft Model 99
+    "BELF": "SC-5",  # Shorts SC-5 Belfast
+    "BER2": "Beriev",  # Beriev Be-200 Altair
+    "BLCF": "Dreamlftr",  # Boeing 747-400 LCF Dreamlifter
+    "C130": "Hercules",  # Lockheed L-182 / 282 / 382 (L-100) Hercules
+    "C208": "208",  # Cessna 208 Caravan
+    "C212": "C212",  # CASA / IPTN 212 Aviocar
+    "C25A": "CJ2",  # Cessna Citation CJ2
+    "C25B": "CJ3",  # Cessna Citation CJ3
+    "C25C": "CJ4",  # Cessna Citation CJ4
+    "C30J": "C-130J",  # Lockheed Martin C-130J Hercules
+    "C408": "408",  # Cessna 408 SkyCourier
+    "C500": "C500",  # Cessna Citation I
+    "C510": "Mustang",  # Cessna Citation Mustang
+    "C525": "CJet",  # Cessna CitationJet
+    "C550": "C550",  # Cessna Citation II
+    "C560": "C560",  # Cessna Citation V
+    "C56X": "Excel",  # Cessna Citation Excel
+    "C5M": "C-5M",  # Lockheed C-5M Super Galaxy
+    "C650": "C650",  # Cessna Citation III, VI, VII
+    "C680": "C680",  # Cessna Citation Sovereign
+    "C68A": "Latitude",  # Cessna Citation Latitude
+    "C700": "Longitude",  # Cessna Citation Longitude
+    "C750": "X",  # Cessna Citation X
+    "C919": "C919",  # Comac C919
+    "CL2T": "415",  # Bombardier 415
+    "CL30": "CL300",  # Bombardier BD-100 Challenger 300
+    "CL35": "CL350",  # Bombardier BD-100 Challenger 350
+    "CL60": "CL600",  # Canadair Challenger 600
+    "CN35": "CN-235",  # CASA/IPTN CN-235
+    "CRJ1": "CRJ-200",  # Canadair Regional Jet 100
+    "CRJ2": "CRJ-200",  # Canadair Regional Jet 200
+    "CRJ7": "CRJ-700",  # Canadair Regional Jet 700 / Regional Jet 550
+    "CRJ9": "CRJ-900",  # Canadair Regional Jet 900
+    "CRJX": "CRJ-1K",  # Canadair Regional Jet 1000
+    "CVLT": "Convair",  # Convair CV-580, CV-600, CV-640
+    "D228": "Do228",  # Dornier 228
+    "D328": "Do.328",  # Fairchild Dornier Do.328
+    "DC10": "DC-10",  # Douglas DC-10-10 / -15 Passenger
+    "DC85": "DC-8-50",  # Douglas DC-8-50
+    "DC86": "DC-8-62",  # Douglas DC-8-62
+    "DC87": "DC-8-72",  # Douglas DC-8-72
+    "DC91": "DC-9-10",  # Douglas DC-9-10
+    "DC92": "DC-9-20",  # Douglas DC-9-20
+    "DC93": "DC-9-30",  # Douglas DC-9-30
+    "DC94": "DC-9-40",  # Douglas DC-9-40
+    "DC95": "DC-9-50",  # Douglas DC-9-50
+    "DH8A": "DHC8-1",  # De Havilland Canada DHC-8-100 Dash 8 / 8Q
+    "DH8B": "DHC8-2",  # De Havilland Canada DHC-8-200 Dash 8 / 8Q
+    "DH8C": "DHC8-3",  # De Havilland Canada DHC-8-300 Dash 8 / 8Q
+    "DH8D": "DHC8-4",  # De Havilland Canada DHC-8-400 Dash 8Q
+    "DHC5": "DHC-5",  # De Havilland Canada DHC-5 Buffalo
+    "DHC6": "DHC-6",  # De Havilland Canada DHC-6 Twin Otter
+    "DHC7": "DHC-7",  # De Havilland Canada DHC-7 Dash 7
+    "E110": "EMB110",  # Embraer EMB 110 Bandeirante
+    "E120": "EMB120",  # Embraer EMB 120 Brasilia
+    "E135": "RJ135",  # Embraer RJ135
+    "E145": "RJ145",  # Embraer RJ145
+    "E170": "E170",  # Embraer 170
+    "E190": "E190",  # Embraer 190 / Lineage 1000
+    "E195": "E195",  # Embraer 195
+    "E290": "E190-E2",  # Embraer E190-E2
+    "E295": "E195-E2",  # Embraer E195-E2
+    "E35L": "Legacy6",  # Embraer Legacy 600 / Legacy 650
+    "E50P": "Phenom1",  # Embraer Phenom 100
+    "E545": "Praetor5",  # Embraer Legacy 450 / Praetor 500
+    "E550": "Praetor6",  # Embraer Legacy 500 / Praetor 600
+    "E55P": "Phenom3",  # Embraer Phenom 300
+    "E75L": "E175",  # Embraer 175 (long wing)
+    "E75S": "E175",  # Embraer 175 (short wing)
+    "EA50": "500",  # Eclipse 500
+    "F100": "100",  # Fokker 100
+    "F27": "F27",  # Fokker F27 Friendship
+    "F28": "F28",  # Fokker F28 Fellowship
+    "F2TH": "Falcon2K",  # Dassault Falcon 2000
+    "F406": "F406",  # Reims-Cessna F406 Caravan II
+    "F50": "50",  # Fokker 50
+    "F70": "70",  # Fokker 70
+    "F900": "Falcon9",  # Dassault Falcon 900
+    "FA50": "Falcon50",  # Dassault Falcon 50
+    "FA6X": "Falcon6X",  # Dassault Falcon 6X
+    "FA7X": "Falcon7X",  # Dassault Falcon 7X
+    "G159": "G-159",  # Gulfstream Aerospace G-159 Gulfstream I
+    "G280": "G280",  # Gulfstream G280
+    "G73T": "Grumman",  # Grumman G-73 Turbo Mallard
+    "GA7C": "G700",  # Gulfstream G700
+    "GL5T": "Global5",  # Bombardier Global 5000
+    "GLEX": "GlobalEx",  # Bombardier Global Express / Raytheon Sentinel
+    "GLF4": "G-IV",  # Gulfstream IV
+    "GLF5": "G-V",  # Gulfstream V
+    "GLF6": "G650",  # Gulfstream G650
+    "H25B": "HS125",  # British Aerospace 125 series / Hawker 700/800/...
+    "H25C": "HS125-1",  # British Aerospace 125-1000 series / Hawker 10...
+    "HDJT": "HA-420",  # Honda HA-420
+    "I114": "Il-114",  # Ilyushin Il-114
+    "IL18": "Il-18",  # Ilyushin Il-18
+    "IL62": "Il-62",  # Ilyushin Il-62
+    "IL76": "Il-76",  # Ilyushin Il-76
+    "IL86": "Il-86",  # Ilyushin Il-86
+    "IL96": "Il-96",  # Ilyushin Il-96
+    "J328": "328JET",  # Fairchild Dornier 328JET
+    "JS31": "31",  # British Aerospace Jetstream 31
+    "JS32": "32",  # British Aerospace Jetstream 32
+    "JS41": "41",  # British Aerospace Jetstream 41
+    "K35R": "KC-135",  # Boeing KC-135 Stratotanker
+    "L101": "Tristar",  # Lockheed L-1011 Tristar
+    "L188": "L-188",  # Lockheed L-188 Electra
+    "L410": "410",  # LET 410
+    "LJ35": "35",  # Learjet 35 / 36 / C-21A
+    "LJ60": "60",  # Learjet 60
+    "MD11": "MD-11",  # McDonnell Douglas MD-11
+    "MD81": "MD-81",  # McDonnell Douglas MD-81
+    "MD82": "MD-82",  # McDonnell Douglas MD-82
+    "MD83": "MD-83",  # McDonnell Douglas MD-83
+    "MD87": "MD-87",  # McDonnell Douglas MD-87
+    "MD88": "MD-88",  # McDonnell Douglas MD-88
+    "MD90": "MD-90",  # McDonnell Douglas MD-90
+    "MU2": "Mu-2",  # Mitsubishi Mu-2
+    "N262": "262",  # Aerospatiale (Nord) 262
+    "NOMA": "N22B",  # Government Aircraft Factories N22B / N24A Nomad
+    "P180": "P.180",  # Piaggio P.180 Avanti
+    "P8": "P-8",  # Boeing P-8 Poseidon
+    "PAY2": "PAY2",  # PIPER Cheyenne 2
+    "PC12": "PC-12",  # Pilatus PC-12
+    "PC24": "PC-24",  # Pilatus PC-24
+    "RJ1H": "RJ100",  # Avro RJ100
+    "RJ70": "RJ70",  # Avro RJ70
+    "RJ85": "RJ85",  # Avro RJ85
+    "S601": "SN.601",  # Aerospatiale SN.601 Corvette
+    "SB20": "2000",  # Saab 2000
+    "SC7": "SC-7",  # Shorts SC-7 Skyvan
+    "SF34": "SF340A",  # Saab SF340A/B
+    "SH33": "SD.330",  # Shorts SD.330
+    "SH36": "SD.360",  # Shorts SD.360
+    "SU95": "SSJ100",  # Sukhoi Superjet 100-95
+    "SW4": "Metro",  # Fairchild Swearingen Metroliner
+    "T134": "Tu-134",  # Tupolev Tu-134
+    "T154": "Tu-154",  # Tupolev Tu-154
+    "T204": "Tu-204",  # Tupolev Tu-204 / Tu-214
+    "WW24": "Westwind",  # Israel Aircraft Industries 1124 Westwind
+    "Y12": "Y-12",  # Harbin Y-12
+    "YK40": "Yak-40",  # Yakovlev Yak-40
+    "YK42": "Yak-42",  # Yakovlev Yak-42
+    "YS11": "YS-11",  # NAMC YS-11
 }
 
 def clamp(value, minimum, maximum):
@@ -825,8 +825,8 @@ def app_display(tail, text):
         ],
     )
 
-def info_text(content):
-    return render.Text(content)
+def info_text(content, color = "#fff"):
+    return render.Text(content, color = color)
 
 def empty_display(message):
     return render.Root(
@@ -877,13 +877,18 @@ def main(config):
         heading_label(plane),
     )
 
+    c1 = config.str("line1_color", "#fff")
+    c2 = config.str("line2_color", "#fff")
+    c3 = config.str("line3_color", "#fff")
+    c4 = config.str("line4_color", "#fff")
+
     text = [
-        info_text(display_flight_number(route, callsign)),
-        info_text(route_string(route)),
-        info_text(aircraft_type(plane)),
+        info_text(display_flight_number(route, callsign), color = c1),
+        info_text(route_string(route), color = c2),
+        info_text(aircraft_type(plane), color = c3),
         render.Marquee(
             width = 32,
-            child = info_text(details),
+            child = info_text(details, color = c4),
         ),
     ]
 
@@ -923,6 +928,34 @@ def get_schema():
                 desc = "Hide app when no aircraft are found.",
                 icon = "gear",
                 default = False,
+            ),
+            schema.Color(
+                id = "line1_color",
+                name = "Line 1 color",
+                desc = "Color of the flight number line.",
+                icon = "palette",
+                default = "#fff",
+            ),
+            schema.Color(
+                id = "line2_color",
+                name = "Line 2 color",
+                desc = "Color of the route line.",
+                icon = "palette",
+                default = "#fff",
+            ),
+            schema.Color(
+                id = "line3_color",
+                name = "Line 3 color",
+                desc = "Color of the aircraft type line.",
+                icon = "palette",
+                default = "#fff",
+            ),
+            schema.Color(
+                id = "line4_color",
+                name = "Line 4 color",
+                desc = "Color of the details line.",
+                icon = "palette",
+                default = "#fff",
             ),
         ],
     )
