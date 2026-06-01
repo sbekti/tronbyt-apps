@@ -1,0 +1,19 @@
+---
+id: nws-weather
+name: NWS Weather
+summary: NWS weather forecast
+desc: Weather forecasts for your location using the free NWS API (no API key required).
+author: sbekti (originally JeffLac, RichardD012, gabe565)
+fileName: weather.star
+packageName: weather
+recommendedInterval: 5
+supports2x: true
+category: weather
+tags:
+  - weather
+  - utility
+  - local
+  - wide 2x support
+  - nws
+published: '2026-05-31T00:00:00Z'
+updated: '2026-05-31T00:00:00Z'
