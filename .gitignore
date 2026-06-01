@@ -1,1 +1,15 @@
 *.webp
+.venv/
+venv/
+__pycache__/
+*.pyc
+.env
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+dist/
+build/
+*.egg-info/
